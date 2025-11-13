@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formal Analysis - Phoenix Protocol</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="analysis-styles.css">
+</head>
+<body>
+    <!-- Header/Nav -->
+    <nav class="analysis-nav">
+        <div class="container">
+            <a href="index.html" class="nav-logo">← Phoenix Protocol</a>
+            <div class="nav-links">
+                <a href="#executive">Executive Summary</a>
+                <a href="#architecture">Architecture</a>
+                <a href="#economics">Economics</a>
+                <a href="#risks">Risk Analysis</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="analysis-hero">
+        <div class="container">
+            <h1>Formal Technical Analysis</h1>
+            <p class="analysis-subtitle">
+                A comprehensive architectural blueprint for the Phoenix Protocol:<br>
+                A decentralized AI compute marketplace rising from Bittensor's ashes
+            </p>
+            <div class="analysis-meta">
+                <span>Version 2.0</span>
+                <span>•</span>
+                <span>Updated: November 13, 2025</span>
+                <span>•</span>
+                <span>Status: Pre-Launch Development</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Table of Contents -->
+    <section class="toc-section">
+        <div class="container">
+            <h2>Table of Contents</h2>
+            <div class="toc-grid">
+                <div class="toc-column">
+                    <h3>Part I: Problem Analysis</h3>
+                    <ul>
+                        <li><a href="#bittensor-failures">1. Bittensor's Core Failures</a></li>
+                        <li><a href="#centralization">1.1 Centralization Paradox</a></li>
+                        <li><a href="#token-economics">1.2 Single-Token Collusion</a></li>
+                        <li><a href="#complexity">1.3 Complexity as Barrier</a></li>
+                    </ul>
+                </div>
+                <div class="toc-column">
+                    <h3>Part II: Solution Architecture</h3>
+                    <ul>
+                        <li><a href="#tri-token">2. Tri-Token Economic Model</a></li>
+                        <li><a href="#oracle">3. Hybrid Oracle System</a></li>
+                        <li><a href="#scalability">4. L1/L2 Architecture</a></li>
+                        <li><a href="#privacy">5. Privacy & Security</a></li>
+                    </ul>
+                </div>
+                <div class="toc-column">
+                    <h3>Part III: Implementation</h3>
+                    <ul>
+                        <li><a href="#bootstrap">6. Bootstrap Strategy</a></li>
+                        <li><a href="#roadmap">7. Development Roadmap</a></li>
+                        <li><a href="#risks">8. Risk Registry</a></li>
+                        <li><a href="#conclusion">9. Conclusion</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section id="executive" class="content-section">
+        <div class="container">
+            <h2>Executive Summary</h2>
+
+            <div class="summary-box">
+                <h3>The Problem</h3>
+                <p>
+                    Bittensor raised the concept of a decentralized AI marketplace to a $5B+ valuation,
+                    then revealed fundamental architectural failures: centralized Proof-of-Authority consensus,
+                    single-token economic conflicts of interest, and opaque validation mechanisms that enabled
+                    systematic insider exploitation.
+                </p>
+            </div>
+
+            <div class="summary-box">
+                <h3>The Solution</h3>
+                <p>
+                    Phoenix Protocol implements true decentralization from genesis (Tendermint PoS, 100 validators),
+                    separates economic incentives via a tri-token model (PHNX/SPARK/bTASK), and ensures verifiable
+                    truth through a hybrid oracle system with cryptographic slashing penalties.
+                </p>
+            </div>
+
+            <div class="summary-box">
+                <h3>The Opportunity</h3>
+                <p>
+                    Launch Q1 2026 to capture Bittensor refugees during peak community disillusionment,
+                    targeting 5-10% of the decentralized AI compute market with realistic 12-month goals:
+                    1,000 miners, 100 validators, 10,000 completed tasks, $1M total volume.
+                </p>
+            </div>
+
+            <div class="key-innovations">
+                <h3>Key Technical Innovations</h3>
+                <div class="innovation-grid">
+                    <div class="innovation">
+                        <h4>🔐 Burn-Mint Equilibrium</h4>
+                        <p>PHNX → SPARK one-way burn with TWAP oracle pricing prevents death spirals while maintaining stable utility token costs</p>
+                    </div>
+                    <div class="innovation">
+                        <h4>⚖️ Stake-Based Disputes</h4>
+                        <p>Validators stake PHNX on work quality; challengers dispute; community votes; losers get slashed (90% to winners)</p>
+                    </div>
+                    <div class="innovation">
+                        <h4>🎯 Task-Specific Vouchers</h4>
+                        <p>bTASK tokens are non-transferable work certificates with guaranteed SPARK redemption - breaks Bittensor's speculation loop</p>
+                    </div>
+                    <div class="innovation">
+                        <h4>📊 L1/L2 Separation</h4>
+                        <p>Tendermint L1 for settlement (500 TPS), Optimistic Rollup L2 for execution (5,000 TPS) - scales without centralization</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Architecture -->
+    <section id="architecture" class="content-section alt-bg">
+        <div class="container">
+            <h2>System Architecture</h2>
+
+            <div class="architecture-diagram">
+                <h3>Phoenix Protocol Stack</h3>
+                <div class="stack-layers">
+                    <div class="stack-layer">
+                        <div class="layer-label">Application Layer</div>
+                        <div class="layer-content">
+                            <p>Task Creation UI • Miner/Validator SDKs • Agent Orchestration • Analytics</p>
+                        </div>
+                    </div>
+                    <div class="stack-layer">
+                        <div class="layer-label">Execution Layer (L2)</div>
+                        <div class="layer-content">
+                            <p>Optimistic Rollup • Task Registry • Work Submission • bTASK Minting • Low-Stakes Disputes</p>
+                        </div>
+                    </div>
+                    <div class="stack-layer">
+                        <div class="layer-label">Verification Layer</div>
+                        <div class="layer-content">
+                            <p>Hybrid Oracle (Optimistic + ZK-ML) • Attestations • Challenges • Slashing</p>
+                        </div>
+                    </div>
+                    <div class="stack-layer">
+                        <div class="layer-label">Settlement Layer (L1)</div>
+                        <div class="layer-content">
+                            <p>Tendermint BFT • PHNX/SPARK Tokens • BME Contract • High-Stakes Disputes • Governance</p>
+                        </div>
+                    </div>
+                    <div class="stack-layer">
+                        <div class="layer-label">Data Layer</div>
+                        <div class="layer-content">
+                            <p>IPFS (Small Files) • Arweave (Permanent) • Filecoin (Temporary) • TEE (Confidential)</p>
+                        </div>
+                    </div>
+                    <div class="stack-layer">
+                        <div class="layer-label">Network Layer</div>
+                        <div class="layer-content">
+                            <p>libp2p • Kademlia DHT • GossipSub • Bitswap</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comparison-table">
+                <h3>Architecture Comparison: Bittensor vs Phoenix</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Component</th>
+                            <th>Bittensor</th>
+                            <th>Phoenix Protocol</th>
+                            <th>Advantage</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>L1 Consensus</strong></td>
+                            <td>Proof-of-Authority (OTF-controlled)</td>
+                            <td>Tendermint PoS (100 validators)</td>
+                            <td class="advantage">True decentralization</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Token Model</strong></td>
+                            <td>Single (TAO) + speculative alpha</td>
+                            <td>Tri-token (PHNX/SPARK/bTASK)</td>
+                            <td class="advantage">Separated incentives</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Validation</strong></td>
+                            <td>Yuma Consensus (opaque)</td>
+                            <td>Hybrid Oracle (transparent slashing)</td>
+                            <td class="advantage">Verifiable truth</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Task Creation</strong></td>
+                            <td>Subnet (high barrier)</td>
+                            <td>Permissionless (instant)</td>
+                            <td class="advantage">Low friction</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Scalability</strong></td>
+                            <td>Limited (PoA bottleneck)</td>
+                            <td>L2 Rollup (5,000 TPS)</td>
+                            <td class="advantage">10x throughput</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Privacy</strong></td>
+                            <td>None</td>
+                            <td>TEE integration (Phase 2)</td>
+                            <td class="advantage">Enterprise-ready</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Governance</strong></td>
+                            <td>Centralized (OTF)</td>
+                            <td>QF + Gitcoin Passport</td>
+                            <td class="advantage">Sybil-resistant democracy</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    <!-- Economics -->
+    <section id="economics" class="content-section">
+        <div class="container">
+            <h2>Economic Model</h2>
+
+            <div class="token-details">
+                <h3>Tri-Token Architecture</h3>
+
+                <div class="token-card">
+                    <div class="token-header">
+                        <h4>PHNX - Governance & Security</h4>
+                        <span class="token-supply">100M Fixed Supply</span>
+                    </div>
+                    <div class="token-body">
+                        <p><strong>Functions:</strong></p>
+                        <ul>
+                            <li>L1 PoS consensus staking</li>
+                            <li>Oracle bonding (slashable collateral)</li>
+                            <li>Protocol governance voting</li>
+                        </ul>
+                        <p><strong>Value Accrual:</strong></p>
+                        <p class="value-mechanism">
+                            15% of all SPARK task fees → Buy PHNX from DEX → Burn forever
+                            <br><span class="mechanism-note">Direct link between usage and deflationary pressure</span>
+                        </p>
+                        <p><strong>Distribution:</strong></p>
+                        <ul class="distribution-list">
+                            <li>30% Public sale</li>
+                            <li>20% Foundation (4y vest)</li>
+                            <li>15% Team (1y cliff, 3y vest)</li>
+                            <li>15% Ecosystem grants</li>
+                            <li>10% Validators/partners</li>
+                            <li>10% Community airdrop</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <div class="token-header">
+                        <h4>SPARK - Stable Utility</h4>
+                        <span class="token-supply">Elastic Supply (USD Pegged)</span>
+                    </div>
+                    <div class="token-body">
+                        <p><strong>Function:</strong></p>
+                        <p>Predictable-cost payment token for all AI tasks ($0.01 per SPARK)</p>
+                        <p><strong>Burn-Mint Equilibrium:</strong></p>
+                        <ol class="mechanism-steps">
+                            <li>User burns PHNX via smart contract</li>
+                            <li>TWAP oracle determines PHNX/USD price (30-min window)</li>
+                            <li>Contract mints equivalent USD value in SPARK</li>
+                            <li>One-way burn (cannot redeem SPARK → PHNX)</li>
+                        </ol>
+                        <p><strong>Manipulation Resistance:</strong></p>
+                        <ul>
+                            <li>30-minute TWAP defeats flash loans</li>
+                            <li>Dual oracle (Chainlink + on-chain DEX)</li>
+                            <li>Circuit breakers (10% deviation triggers pause)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="token-card">
+                    <div class="token-header">
+                        <h4>bTASK - Work Vouchers</h4>
+                        <span class="token-supply">Task-Specific</span>
+                    </div>
+                    <div class="token-body">
+                        <p><strong>Function:</strong></p>
+                        <p>Non-transferable certificates of completed work, redeemable 1:1 for SPARK</p>
+                        <p><strong>Mechanism:</strong></p>
+                        <ol class="mechanism-steps">
+                            <li>Task creator funds bounty with X SPARK (escrowed)</li>
+                            <li>Protocol mints X bTASK tokens for that specific task</li>
+                            <li>Miners earn bTASK upon validated work completion</li>
+                            <li>Miners redeem bTASK → SPARK from escrow anytime</li>
+                        </ol>
+                        <p><strong>Why Non-Transferable?</strong></p>
+                        <p class="mechanism-note">
+                            Prevents speculation and ensures miners are compensated for actual work, not token trading.
+                            This breaks Bittensor's alpha token speculation circus.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="unit-economics">
+                <h3>Unit Economics Example</h3>
+                <div class="example-box">
+                    <h4>Task: Generate 10,000 AI Images</h4>
+                    <div class="economics-flow">
+                        <div class="econ-step">
+                            <div class="step-label">Task Creator</div>
+                            <div class="step-value">Pays: 100,000 SPARK ($1,000)</div>
+                            <div class="step-note">Comparable to DALL-E: ~$0.02/image (50% cheaper)</div>
+                        </div>
+                        <div class="econ-arrow">→</div>
+                        <div class="econ-step">
+                            <div class="step-label">Fee Split</div>
+                            <div class="step-breakdown">
+                                70,000 SPARK → Miner<br>
+                                15,000 SPARK → PHNX buyback-burn<br>
+                                10,000 SPARK → Community treasury<br>
+                                5,000 SPARK → Security reserve
+                            </div>
+                        </div>
+                        <div class="econ-arrow">→</div>
+                        <div class="econ-step">
+                            <div class="step-label">Miner Economics</div>
+                            <div class="step-value">Revenue: $700</div>
+                            <div class="step-value">GPU Cost: ~$150 (A100, 100hrs)</div>
+                            <div class="step-value profit">Profit: $550</div>
+                        </div>
+                    </div>
+                    <div class="validator-economics">
+                        <h5>Validator Economics</h5>
+                        <p><strong>Attestation Fee:</strong> 1% of task = 1,000 SPARK ($10)</p>
+                        <p><strong>Stake Required:</strong> 100 PHNX (~$100 at $1/PHNX)</p>
+                        <p><strong>ROI:</strong> 10% per task. At 100 tasks/month → 1,000% monthly ROI</p>
+                        <p class="economics-note">High returns attract honest validators, make slashing extremely expensive for bad actors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bootstrap Strategy -->
+    <section id="bootstrap" class="content-section alt-bg">
+        <div class="container">
+            <h2>Bootstrap Strategy</h2>
+
+            <div class="phase-timeline">
+                <h3>Three-Phase Launch</h3>
+
+                <div class="phase-card">
+                    <div class="phase-number">Phase 1</div>
+                    <div class="phase-content">
+                        <h4>Foundation Bootstrap (Months 0-6)</h4>
+                        <p class="phase-goal"><strong>Goal:</strong> Establish secure network and validator set</p>
+                        <ul>
+                            <li>Genesis token distribution (100M PHNX)</li>
+                            <li>Recruit 100 professional validators (Figment, Chorus One, etc.)</li>
+                            <li>Temporary inflationary block rewards (5 PHNX/block → 0.5 over 2 years)</li>
+                            <li>Foundation operates 20/100 validators initially, reduces to 0/100 over 12 months</li>
+                        </ul>
+                        <p class="phase-deliverable"><strong>Deliverable:</strong> Secure L1 blockchain without task dependency</p>
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <div class="phase-number">Phase 2</div>
+                    <div class="phase-content">
+                        <h4>Miner Incentivization (Months 6-12)</h4>
+                        <p class="phase-goal"><strong>Goal:</strong> Build compute supply before demand</p>
+                        <ul>
+                            <li>Mining incentive pool (10M PHNX reserved for early miners)</li>
+                            <li>Foundation-funded pilot tasks (real AI workloads, competitive SPARK rates)</li>
+                            <li>Hardware partnerships (Lambda Labs, RunPod integration)</li>
+                            <li>Testnet program with graduated rewards (2x for months 6-8, 1x for months 10-12)</li>
+                        </ul>
+                        <p class="phase-deliverable"><strong>Deliverable:</strong> 1,000+ active miners, proven product-market fit</p>
+                    </div>
+                </div>
+
+                <div class="phase-card">
+                    <div class="phase-number">Phase 3</div>
+                    <div class="phase-content">
+                        <h4>Demand Generation (Months 12-24)</h4>
+                        <p class="phase-goal"><strong>Goal:</strong> Attract paying task creators</p>
+                        <div class="target-customers">
+                            <h5>Target Customers (Ranked by Feasibility):</h5>
+                            <ol>
+                                <li><strong>Crypto-Native AI Projects</strong> (Highest) - Gensyn, AI DAOs, already understand crypto</li>
+                                <li><strong>AI Researchers</strong> (Medium) - Academic labs, need 30% cost reduction vs AWS</li>
+                                <li><strong>Web3 Game Devs</strong> (Medium) - AI NPCs, procedural content generation</li>
+                                <li><strong>Enterprises</strong> (Low, Phase 2+) - Requires TEE integration for confidential compute</li>
+                            </ol>
+                        </div>
+                        <ul>
+                            <li>First 1,000 task creators receive 20% SPARK rebate</li>
+                            <li>Fiat on-ramps (Stripe, MoonPay partnerships)</li>
+                            <li>Hackathons and ecosystem grants</li>
+                        </ul>
+                        <p class="phase-deliverable"><strong>Deliverable:</strong> Fee-sustainable protocol by month 18-24</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cold-start-analysis">
+                <h3>Why Token Bootstrapping Will Work</h3>
+                <p class="analysis-intro">Based on 2025 research on successful crypto protocol launches:</p>
+                <div class="success-factors">
+                    <div class="factor">
+                        <h4>✅ Passive Participation</h4>
+                        <p>
+                            Miners and validators provide <strong>passive compute/validation</strong> (like Helium hotspots or PoS staking).
+                            Token incentives work best for passive networks where users connect resources once and earn over time.
+                        </p>
+                    </div>
+                    <div class="factor">
+                        <h4>✅ Financial Participants</h4>
+                        <p>
+                            All participants are <strong>financially motivated</strong> (not social/content networks).
+                            Clear ROI calculations for miners (GPU profit) and validators (attestation fees) drive adoption.
+                        </p>
+                    </div>
+                    <div class="factor">
+                        <h4>✅ Aligned Incentives</h4>
+                        <p>
+                            Token rewards align with desired behavior: miners earn for completing work, validators earn for correct attestations.
+                            No misaligned incentives (unlike social networks where token rewards can degrade content quality).
+                        </p>
+                    </div>
+                    <div class="factor">
+                        <h4>✅ Red Ocean Market</h4>
+                        <p>
+                            Competing in a <strong>known market with proven demand</strong> (Bittensor hit $5B cap).
+                            Not creating new market from scratch - offering better execution of existing concept.
+                        </p>
+                    </div>
+                </div>
+                <p class="success-precedents">
+                    <strong>Successful Precedents:</strong> Helium (DePIN), Lido (liquid staking), GMX/dYdX (DeFi),
+                    Arweave (storage) - all used token bootstrapping for passive participation networks.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Risk Registry -->
+    <section id="risks" class="content-section">
+        <div class="container">
+            <h2>Comprehensive Risk Registry</h2>
+
+            <div class="risk-table-wrapper">
+                <table class="risk-table">
+                    <thead>
+                        <tr>
+                            <th>Risk Category</th>
+                            <th>Specific Risk</th>
+                            <th>Probability</th>
+                            <th>Impact</th>
+                            <th>Mitigation Strategy</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>Technical</strong></td>
+                            <td>L1 consensus failure (validator cartel)</td>
+                            <td class="prob-medium">Medium</td>
+                            <td class="impact-critical">Critical</td>
+                            <td>Geographic/entity diversity requirements; 66% Byzantine threshold; stake caps (5% max per entity)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technical</strong></td>
+                            <td>Oracle manipulation (TWAP attack)</td>
+                            <td class="prob-medium">Medium</td>
+                            <td class="impact-high">High</td>
+                            <td>Multi-source oracles (Chainlink + DEX); 30-min TWAP windows; circuit breakers (10% deviation)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Technical</strong></td>
+                            <td>L2 sequencer centralization</td>
+                            <td class="prob-high">High (early)</td>
+                            <td class="impact-medium">Medium</td>
+                            <td>Decentralized sequencer roadmap; fraud-proof redundancy; 7-day withdrawal periods</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Economic</strong></td>
+                            <td>Cold start failure (no miners)</td>
+                            <td class="prob-medium">Medium</td>
+                            <td class="impact-critical">Critical</td>
+                            <td>Inflationary bootstrap rewards (10M PHNX pool); foundation-funded pilot tasks; hardware partnerships</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Economic</strong></td>
+                            <td>PHNX death spiral (price crash)</td>
+                            <td class="prob-low">Low</td>
+                            <td class="impact-high">High</td>
+                            <td>One-way burn (no SPARK→PHNX redemption); buy-back mechanism stabilizes demand</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Economic</strong></td>
+                            <td>Cannot compete with AWS pricing</td>
+                            <td class="prob-high">High</td>
+                            <td class="impact-high">High</td>
+                            <td>Target 30% cost advantage; focus on niche markets (censorship resistance, privacy)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Regulatory</strong></td>
+                            <td>Securities classification (PHNX/SPARK)</td>
+                            <td class="prob-medium">Medium</td>
+                            <td class="impact-critical">Critical</td>
+                            <td>Legal counsel (ongoing); utility-first design; progressive decentralization; public sale (no VC pre-mine)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Adoption</strong></td>
+                            <td>Crypto UX too complex (3 tokens)</td>
+                            <td class="prob-high">High</td>
+                            <td class="impact-high">High</td>
+                            <td>SDKs in popular languages; fiat on-ramps; progressive disclosure UI; extensive documentation</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Competition</strong></td>
+                            <td>Bittensor transitions to PoS</td>
+                            <td class="prob-low">Low</td>
+                            <td class="impact-medium">Medium</td>
+                            <td>Phoenix already decentralized; better economics; if they succeed, we celebrate and open-source everything</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Security</strong></td>
+                            <td>Smart contract vulnerabilities</td>
+                            <td class="prob-medium">Medium</td>
+                            <td class="impact-critical">Critical</td>
+                            <td>Multiple audits (Trail of Bits, OpenZeppelin); $500k bug bounty; formal verification; gradual rollout</td>
+                        </tr>
+                        <tr>
+                            <td><strong>Security</strong></td>
+                            <td>TEE hardware vulnerabilities</td>
+                            <td class="prob-medium">Medium (Phase 2)</td>
+                            <td class="impact-high">High</td>
+                            <td>Multi-TEE support (SGX + SEV); optional TEE (not mandatory); redundant verification</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="success-failure">
+                <h3>Realistic Outcomes</h3>
+                <div class="outcome-grid">
+                    <div class="outcome-card failure">
+                        <h4>Failure Scenarios (We Admit Defeat If...)</h4>
+                        <ul>
+                            <li>Cannot achieve cost-competitive compute (miner margins too thin)</li>
+                            <li>Crypto UX prevents mainstream adoption (10,000 task creators)</li>
+                            <li>Oracle exploited, trust destroyed, cannot recover</li>
+                            <li>Bittensor successfully decentralizes before Q1 2026</li>
+                            <li>Regulatory shutdown (securities classification, no legal recourse)</li>
+                        </ul>
+                        <p class="outcome-action">
+                            <strong>If we fail:</strong> Open-source all research and code. Publish post-mortem analysis.
+                            Hope the next team learns from our mistakes.
+                        </p>
+                    </div>
+                    <div class="outcome-card success">
+                        <h4>Success Scenarios (Realistic Targets)</h4>
+                        <ul>
+                            <li>Capture 5-10% of decentralized AI compute market</li>
+                            <li>Become default for censorship-resistant ML workloads</li>
+                            <li>Privacy premium (TEE) attracts enterprise by Phase 2</li>
+                            <li>Early network effects create moat (1,000+ miners by month 12)</li>
+                            <li>Protocol market cap: $100M-500M (comparable to mid-tier DeFi)</li>
+                        </ul>
+                        <p class="outcome-action">
+                            <strong>This is success:</strong> Not "AI Bitcoin." A sustainable, useful protocol
+                            serving a niche market honestly. That's enough.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Roadmap -->
+    <section id="roadmap" class="content-section alt-bg">
+        <div class="container">
+            <h2>Development Roadmap</h2>
+
+            <div class="roadmap-timeline">
+                <div class="roadmap-phase">
+                    <div class="phase-header">
+                        <div class="phase-dates">Months 0-12</div>
+                        <h3>Phase 1: Foundation</h3>
+                        <div class="phase-status">Launch-Ready Core</div>
+                    </div>
+                    <div class="phase-details">
+                        <div class="deliverables">
+                            <h4>Deliverables:</h4>
+                            <ul>
+                                <li>L1 Tendermint blockchain (100-validator set)</li>
+                                <li>PHNX/SPARK token contracts + BME mechanism</li>
+                                <li>Optimistic oracle smart contracts</li>
+                                <li>L2 optimistic rollup testnet</li>
+                                <li>Basic task creation UI</li>
+                                <li>Miner SDK (Python/JavaScript)</li>
+                                <li>Validator SDK</li>
+                                <li>IPFS/Arweave integration</li>
+                                <li><strong>Testnet launch (month 9)</strong></li>
+                                <li><strong>Mainnet launch (month 12) - Q1 2026</strong></li>
+                            </ul>
+                        </div>
+                        <div class="resources">
+                            <h4>Resources:</h4>
+                            <p><strong>Team:</strong> 11 engineers (3 blockchain, 2 smart contract, 2 backend, 2 frontend, 1 DevOps, 1 economist)</p>
+                            <p><strong>Budget:</strong> $2.5M (12-month runway)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-phase">
+                    <div class="phase-header">
+                        <div class="phase-dates">Months 12-24</div>
+                        <h3>Phase 2: Scale</h3>
+                        <div class="phase-status">Enterprise-Ready</div>
+                    </div>
+                    <div class="phase-details">
+                        <div class="deliverables">
+                            <h4>Deliverables:</h4>
+                            <ul>
+                                <li>L2 mainnet (5,000 TPS)</li>
+                                <li>TEE integration (iExec partnership or custom)</li>
+                                <li>ZK-ML integration (EZKL or equivalent)</li>
+                                <li>Advanced task specification DSL</li>
+                                <li>Gitcoin Passport integration</li>
+                                <li>Allo Protocol QF integration</li>
+                                <li>Mobile SDK (React Native)</li>
+                                <li>Multi-language support (Rust, Go, Java)</li>
+                                <li>Fiat on-ramps (Stripe/MoonPay)</li>
+                                <li>Enterprise API + SLAs</li>
+                            </ul>
+                        </div>
+                        <div class="resources">
+                            <h4>Additional Resources:</h4>
+                            <p><strong>Team:</strong> +6 (2 cryptography, 1 security, 2 integrations, 1 BD)</p>
+                            <p><strong>Budget:</strong> $3M (additional 12 months)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="roadmap-phase">
+                    <div class="phase-header">
+                        <div class="phase-dates">Months 24-36</div>
+                        <h3>Phase 3: Ecosystem</h3>
+                        <div class="phase-status">Protocol Maturity</div>
+                    </div>
+                    <div class="phase-details">
+                        <div class="deliverables">
+                            <h4>Deliverables:</h4>
+                            <ul>
+                                <li>Federated learning support</li>
+                                <li>Multi-chain interoperability (Cosmos IBC)</li>
+                                <li>Agent orchestration framework</li>
+                                <li>Advanced governance (conviction voting)</li>
+                                <li>Mobile app for task management</li>
+                                <li>Protocol analytics dashboard</li>
+                                <li>DAO-managed grants program</li>
+                                <li><strong>Foundation dissolves, protocol fully community-run</strong></li>
+                            </ul>
+                        </div>
+                        <div class="resources">
+                            <h4>Funding:</h4>
+                            <p><strong>Source:</strong> Protocol fees + community treasury (self-sustaining)</p>
+                            <p><strong>Budget:</strong> $2M (funded by protocol revenue)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="success-metrics">
+                <h3>12-Month Success Metrics</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-value">100</div>
+                        <div class="metric-label">Active L1 Validators</div>
+                        <div class="metric-detail">Geographic diversity >20 countries</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">1,000</div>
+                        <div class="metric-label">Active Miners</div>
+                        <div class="metric-detail">Compute providers with >95% uptime</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">10,000</div>
+                        <div class="metric-label">Completed Tasks</div>
+                        <div class="metric-detail">Verified AI workloads</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">$1M</div>
+                        <div class="metric-label">Total Task Volume</div>
+                        <div class="metric-detail">SPARK fees (cumulative)</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">$50M</div>
+                        <div class="metric-label">PHNX Market Cap</div>
+                        <div class="metric-detail">Implies $0.50/token at 100M supply</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-value">>50%</div>
+                        <div class="metric-label">PHNX Staked</div>
+                        <div class="metric-detail">Low velocity, high security</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Conclusion -->
+    <section id="conclusion" class="content-section">
+        <div class="container">
+            <h2>Conclusion</h2>
+
+            <div class="conclusion-content">
+                <div class="conclusion-box">
+                    <h3>From Bittensor's Ashes</h3>
+                    <p>
+                        Bittensor successfully identified the demand for decentralized AI infrastructure,
+                        achieving a $5B+ market cap at peak. However, it catastrophically failed in execution:
+                        centralized PoA control, single-token collusion incentives, and opaque validation mechanisms
+                        transformed a promising concept into an extractive "grift playground."
+                    </p>
+                    <p>
+                        The market validated the idea. The implementation betrayed the vision.
+                    </p>
+                </div>
+
+                <div class="conclusion-box">
+                    <h3>The Phoenix Protocol Mandate</h3>
+                    <p>
+                        We are not building "Bittensor 2.0." We are building what Bittensor should have been:
+                    </p>
+                    <ul class="mandate-list">
+                        <li><strong>Actually decentralized</strong> - 100 independent validators from genesis, not centralized PoA</li>
+                        <li><strong>Economically aligned</strong> - Tri-token separation of incentives, not conflicted single-token</li>
+                        <li><strong>Verifiably honest</strong> - Stake-backed slashing, not opaque "trust us" consensus</li>
+                        <li><strong>Transparently built</strong> - Open development, public roadmap, no VC pre-mines</li>
+                        <li><strong>Realistically scoped</strong> - Target 5-10% market share, not "AI Bitcoin" delusions</li>
+                    </ul>
+                </div>
+
+                <div class="conclusion-box">
+                    <h3>Honest Expectations</h3>
+                    <p>
+                        <strong>We will not</strong> replace AWS, hit $10B market cap, or make early investors rich overnight.
+                    </p>
+                    <p>
+                        <strong>We will</strong> build sustainable infrastructure for censorship-resistant AI,
+                        serve niche markets (crypto-native projects, privacy-conscious researchers),
+                        and prove that decentralized AI marketplaces can work without grift.
+                    </p>
+                    <p>
+                        <strong>We might fail.</strong> Technology risk, economic risk, adoption risk, regulatory risk - all real.
+                    </p>
+                    <p>
+                        <strong>We're building it anyway.</strong> Because the alternative - centralized AI controlled
+                        by three corporations - is worse than the risk of failure.
+                    </p>
+                </div>
+
+                <div class="conclusion-cta">
+                    <h3>Join the Revolution</h3>
+                    <p>
+                        If you believe AI infrastructure should be community-owned, permissionless, and transparent,
+                        you belong here.
+                    </p>
+                    <div class="cta-buttons">
+                        <a href="index.html#waitlist" class="btn btn-primary">Join the Waitlist</a>
+                        <a href="../CONCEPT.md" class="btn btn-secondary">Read Full Technical Spec</a>
+                    </div>
+                    <p class="disclaimer">
+                        <strong>Disclaimer:</strong> This is not financial advice. Cryptocurrencies are risky.
+                        Read the risk registry. Do your research. Only invest what you can afford to lose.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-links">
+                    <h4>Resources</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="analysis.html">Formal Analysis</a></li>
+                        <li><a href="https://github.com/yourusername/phoenix-protocol" target="_blank">GitHub</a></li>
+                        <li><a href="#" class="coming-soon">Whitepaper (Coming Soon)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>Community</h4>
+                    <ul>
+                        <li><a href="#" class="coming-soon">Discord (Coming Soon)</a></li>
+                        <li><a href="#" class="coming-soon">Twitter (Coming Soon)</a></li>
+                        <li><a href="#" class="coming-soon">Forum (Coming Soon)</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h4>Phoenix Protocol</h4>
+                    <p>Building the decentralized AI marketplace that should have existed.</p>
+                    <p class="footer-status">
+                        <span class="status-dot"></span>
+                        Pre-Launch Development
+                    </p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Phoenix Protocol. Open source (Apache 2.0 / MIT - TBD)</p>
+                <p class="footer-disclaimer">
+                    Version 2.0 | Last Updated: November 13, 2025
+                </p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
