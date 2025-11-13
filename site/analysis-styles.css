@@ -1,12 +1,12 @@
-/* Analysis Page Specific Styles */
+/* Analysis Page - Scientific/Authoritative Aesthetic */
 
 .analysis-nav {
-    background: var(--dark);
-    padding: 20px 0;
+    background: var(--gray-900);
+    border-bottom: 1px solid var(--gray-700);
+    padding: 15px 0;
     position: sticky;
     top: 0;
     z-index: 1000;
-    border-bottom: 2px solid var(--primary);
 }
 
 .analysis-nav .container {
@@ -16,88 +16,94 @@
 }
 
 .nav-logo {
-    color: white;
+    color: var(--white);
     text-decoration: none;
-    font-weight: 600;
-    font-size: 1.2rem;
-    transition: color 0.3s ease;
+    font-weight: normal;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1rem;
 }
 
 .nav-logo:hover {
-    color: var(--primary);
+    text-decoration: underline;
 }
 
 .nav-links {
     display: flex;
-    gap: 30px;
+    gap: 20px;
 }
 
 .nav-links a {
-    color: #ccc;
+    color: var(--gray-300);
     text-decoration: none;
-    font-size: 0.95rem;
-    transition: color 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.85rem;
 }
 
 .nav-links a:hover {
-    color: var(--primary);
+    color: var(--white);
+    text-decoration: underline;
 }
 
 .analysis-hero {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-alt) 100%);
-    color: white;
-    padding: 80px 20px 60px;
-    text-align: center;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border);
+    padding: 40px 20px 30px;
 }
 
 .analysis-hero h1 {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    background: linear-gradient(135deg, var(--primary) 0%, #ffd700 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
+    font-family: 'Georgia', serif;
+    font-size: 2.5rem;
+    font-weight: normal;
+    margin-bottom: 15px;
+    color: var(--gray-900);
 }
 
 .analysis-subtitle {
-    font-size: 1.3rem;
-    color: #ccc;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1rem;
+    color: var(--text-secondary);
     line-height: 1.6;
     max-width: 800px;
-    margin: 0 auto 30px;
+    margin: 0 auto 20px;
 }
 
 .analysis-meta {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    font-size: 0.9rem;
-    color: #999;
+    gap: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.85rem;
+    color: var(--gray-500);
 }
 
 /* Table of Contents */
 .toc-section {
-    background: white;
-    padding: 60px 20px;
-    border-bottom: 2px solid var(--border);
+    background: var(--white);
+    padding: 40px 20px;
+    border-bottom: 1px solid var(--border);
 }
 
 .toc-section h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
+    font-family: 'Georgia', serif;
+    font-size: 1.8rem;
+    font-weight: normal;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
 }
 
 .toc-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
 }
 
 .toc-column h3 {
-    color: var(--primary);
-    margin-bottom: 20px;
-    font-size: 1.3rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
+    color: var(--gray-900);
 }
 
 .toc-column ul {
@@ -106,227 +112,243 @@
 }
 
 .toc-column li {
-    margin: 10px 0;
+    margin: 8px 0;
 }
 
 .toc-column a {
-    color: var(--text);
+    color: var(--accent);
     text-decoration: none;
-    transition: all 0.3s ease;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.9rem;
     display: block;
-    padding: 8px 15px;
-    border-left: 3px solid transparent;
+    padding: 4px 0;
 }
 
 .toc-column a:hover {
-    color: var(--primary);
-    border-left-color: var(--primary);
-    background: rgba(255, 107, 53, 0.05);
+    text-decoration: underline;
 }
 
 /* Content Sections */
 .content-section {
-    padding: 80px 20px;
+    padding: 50px 20px;
 }
 
 .content-section.alt-bg {
-    background: #f9f9f9;
+    background: var(--bg-secondary);
 }
 
 .content-section h2 {
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-    color: var(--dark);
+    font-family: 'Georgia', serif;
+    font-size: 2rem;
+    font-weight: normal;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 10px;
+    margin-bottom: 30px;
+    color: var(--gray-900);
 }
 
 .summary-box {
-    background: white;
-    border: 2px solid var(--border);
-    border-radius: 15px;
-    padding: 30px;
-    margin-bottom: 30px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 25px;
+    margin-bottom: 25px;
 }
 
 .summary-box h3 {
-    color: var(--primary);
-    margin-bottom: 15px;
-    font-size: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--gray-900);
 }
 
 .summary-box p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: var(--text);
+    font-size: 0.95rem;
+    line-height: 1.7;
+    color: var(--text-primary);
 }
 
 .key-innovations {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .key-innovations h3 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 25px;
 }
 
 .innovation-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
 }
 
 .innovation {
-    background: linear-gradient(135deg, rgba(255, 107, 53, 0.1) 0%, white 100%);
-    padding: 25px;
-    border-radius: 15px;
-    border: 2px solid rgba(255, 107, 53, 0.2);
+    background: var(--white);
+    padding: 20px;
 }
 
 .innovation h4 {
-    color: var(--primary);
-    margin-bottom: 15px;
-    font-size: 1.2rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--gray-900);
+}
+
+.innovation p {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
 }
 
 /* Architecture Diagram */
 .architecture-diagram {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
-    margin-bottom: 50px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 30px;
+    margin-bottom: 40px;
 }
 
 .architecture-diagram h3 {
-    text-align: center;
-    font-size: 1.8rem;
-    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-bottom: 25px;
 }
 
 .stack-layers {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
 }
 
 .stack-layer {
     display: grid;
-    grid-template-columns: 200px 1fr;
-    background: var(--light);
-    border-radius: 10px;
-    overflow: hidden;
-    border: 2px solid var(--border);
+    grid-template-columns: 180px 1fr;
+    background: var(--white);
 }
 
 .layer-label {
-    background: var(--secondary);
-    color: white;
-    padding: 20px;
-    display: flex;
-    align-items: center;
+    background: var(--gray-100);
+    padding: 12px 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
     font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--gray-900);
+    border-right: 1px solid var(--border);
 }
 
 .layer-content {
-    padding: 20px;
+    padding: 12px 15px;
     display: flex;
     align-items: center;
 }
 
 .layer-content p {
     margin: 0;
-    font-size: 0.95rem;
-    color: var(--text-light);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
 }
 
 /* Comparison Table */
 .comparison-table {
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 30px;
 }
 
 .comparison-table h3 {
-    font-size: 1.8rem;
-    margin-bottom: 30px;
+    font-family: 'Georgia', serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-bottom: 20px;
 }
 
 .comparison-table table {
     width: 100%;
     border-collapse: collapse;
+    font-size: 0.9rem;
 }
 
 .comparison-table th,
 .comparison-table td {
-    padding: 15px;
+    padding: 12px;
     text-align: left;
-    border-bottom: 1px solid var(--border);
+    border: 1px solid var(--border);
 }
 
 .comparison-table th {
-    background: var(--dark);
-    color: white;
+    background: var(--gray-100);
     font-weight: 600;
 }
 
-.comparison-table tr:hover {
-    background: rgba(255, 107, 53, 0.05);
-}
-
 .comparison-table .advantage {
-    color: var(--success);
+    color: var(--accent);
     font-weight: 600;
 }
 
 /* Token Details */
 .token-details {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .token-details h3 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 25px;
 }
 
 .token-card {
-    background: white;
-    border: 2px solid var(--border);
-    border-radius: 20px;
-    margin-bottom: 30px;
-    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border);
+    margin-bottom: 25px;
 }
 
 .token-header {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-alt) 100%);
-    color: white;
-    padding: 25px 30px;
+    background: var(--gray-100);
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border);
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .token-header h4 {
-    font-size: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
     margin: 0;
 }
 
 .token-supply {
-    background: rgba(255, 107, 53, 0.3);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    background: var(--gray-200);
+    padding: 4px 10px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.85rem;
+    color: var(--gray-700);
 }
 
 .token-body {
-    padding: 30px;
+    padding: 20px;
 }
 
 .token-body p {
-    margin: 15px 0;
+    margin: 12px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }
 
 .token-body strong {
-    color: var(--primary);
+    font-weight: 600;
+    color: var(--gray-900);
 }
 
 .token-body ul {
@@ -335,53 +357,36 @@
 }
 
 .token-body li {
-    margin: 8px 0;
+    margin: 6px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.9rem;
 }
 
 .value-mechanism {
-    background: rgba(46, 204, 113, 0.1);
-    padding: 20px;
-    border-radius: 10px;
-    border-left: 4px solid var(--success);
+    background: var(--bg-secondary);
+    padding: 15px;
+    border-left: 3px solid var(--accent);
     margin: 15px 0;
 }
 
 .mechanism-note {
-    font-size: 0.9rem;
-    color: var(--text-light);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
     font-style: italic;
 }
 
 .mechanism-steps {
-    background: var(--light);
-    padding: 20px;
-    border-radius: 10px;
-    counter-reset: step;
-    list-style: none;
+    background: var(--bg-secondary);
+    padding: 15px;
+    border: 1px solid var(--border);
+    list-style: decimal;
+    padding-left: 40px;
 }
 
 .mechanism-steps li {
-    counter-increment: step;
-    margin: 15px 0;
-    padding-left: 40px;
-    position: relative;
-}
-
-.mechanism-steps li::before {
-    content: counter(step);
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 28px;
-    height: 28px;
-    background: var(--primary);
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 0.85rem;
+    margin: 10px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.9rem;
 }
 
 .distribution-list {
@@ -390,388 +395,399 @@
 }
 
 .distribution-list li {
-    padding: 12px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid var(--gray-200);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.9rem;
 }
 
 /* Unit Economics */
 .unit-economics {
-    margin-top: 50px;
+    margin-top: 40px;
 }
 
 .unit-economics h3 {
-    font-size: 2rem;
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: normal;
     margin-bottom: 20px;
 }
 
 .example-box {
-    background: white;
-    border: 2px solid var(--primary);
-    border-radius: 20px;
-    padding: 40px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 30px;
 }
 
 .example-box h4 {
-    font-size: 1.5rem;
-    color: var(--primary);
-    margin-bottom: 30px;
-    text-align: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 25px;
+    color: var(--gray-900);
 }
 
 .economics-flow {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .econ-step {
     flex: 1;
-    background: var(--light);
-    padding: 20px;
-    border-radius: 15px;
+    background: var(--bg-secondary);
+    padding: 15px;
+    border: 1px solid var(--border);
 }
 
 .step-label {
     font-weight: 600;
-    color: var(--secondary);
-    margin-bottom: 10px;
-    font-size: 1.1rem;
+    color: var(--gray-900);
+    margin-bottom: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.9rem;
 }
 
 .step-value {
-    font-size: 1.2rem;
-    font-weight: bold;
-    color: var(--text);
-    margin: 8px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--gray-900);
+    margin: 6px 0;
 }
 
 .step-value.profit {
-    color: var(--success);
-    font-size: 1.5rem;
+    color: var(--accent);
+    font-size: 1.3rem;
 }
 
 .step-note {
-    font-size: 0.9rem;
-    color: var(--text-light);
-    margin-top: 10px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 8px;
 }
 
 .step-breakdown {
-    font-size: 0.95rem;
-    line-height: 1.8;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    font-family: 'Courier New', monospace;
 }
 
 .econ-arrow {
-    font-size: 2rem;
-    color: var(--primary);
-    margin: 0 15px;
+    font-size: 1.5rem;
+    color: var(--gray-600);
+    margin: 0 10px;
 }
 
 .validator-economics {
-    background: rgba(0, 78, 137, 0.1);
-    padding: 25px;
-    border-radius: 15px;
-    border-left: 4px solid var(--secondary);
+    background: var(--bg-secondary);
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--gray-600);
 }
 
 .validator-economics h5 {
-    font-size: 1.2rem;
-    color: var(--secondary);
-    margin-bottom: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+    color: var(--gray-900);
 }
 
 .economics-note {
-    font-size: 0.9rem;
-    color: var(--text-light);
+    font-size: 0.85rem;
+    color: var(--text-secondary);
     font-style: italic;
-    margin-top: 15px;
+    margin-top: 12px;
 }
 
 /* Phase Timeline */
 .phase-timeline {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .phase-timeline h3 {
-    font-size: 2rem;
-    margin-bottom: 40px;
-    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 25px;
 }
 
 .phase-card {
-    background: white;
-    border: 2px solid var(--border);
-    border-radius: 20px;
-    margin-bottom: 30px;
-    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border);
+    margin-bottom: 25px;
 }
 
 .phase-header {
-    background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
-    color: white;
-    padding: 25px 30px;
+    background: var(--gray-100);
+    padding: 15px 20px;
+    border-bottom: 1px solid var(--border);
     display: grid;
-    grid-template-columns: 150px 1fr auto;
-    gap: 20px;
+    grid-template-columns: auto 1fr auto;
+    gap: 15px;
     align-items: center;
 }
 
 .phase-dates {
-    background: rgba(0, 0, 0, 0.2);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
-    text-align: center;
+    background: var(--gray-900);
+    color: var(--white);
+    padding: 4px 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.85rem;
 }
 
 .phase-header h3 {
     margin: 0;
-    font-size: 1.5rem;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 600;
 }
 
 .phase-status {
-    background: rgba(255, 255, 255, 0.2);
-    padding: 8px 15px;
-    border-radius: 20px;
-    font-size: 0.9rem;
+    background: var(--gray-200);
+    padding: 4px 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.85rem;
+    color: var(--gray-700);
 }
 
 .phase-content {
-    padding: 30px;
+    padding: 20px;
 }
 
 .phase-goal {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
+    font-size: 0.95rem;
+    margin-bottom: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }
 
 .phase-deliverable {
-    background: rgba(46, 204, 113, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    margin-top: 20px;
-    border-left: 4px solid var(--success);
+    background: var(--bg-secondary);
+    padding: 12px;
+    border-left: 3px solid var(--accent);
+    margin-top: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.9rem;
 }
 
 .deliverables h4,
 .resources h4,
 .target-customers h5 {
-    color: var(--primary);
-    margin: 20px 0 15px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 15px 0 10px 0;
+    color: var(--gray-900);
 }
 
 .target-customers ol {
-    margin: 15px 0;
-    padding-left: 20px;
+    margin: 12px 0;
+    padding-left: 25px;
 }
 
 .target-customers li {
-    margin: 10px 0;
+    margin: 8px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.9rem;
 }
 
 /* Cold Start Analysis */
 .cold-start-analysis {
-    margin-top: 60px;
-    background: white;
-    padding: 40px;
-    border-radius: 20px;
+    margin-top: 40px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 30px;
 }
 
 .cold-start-analysis h3 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-bottom: 15px;
 }
 
 .analysis-intro {
-    font-size: 1.1rem;
-    color: var(--text-light);
-    margin-bottom: 30px;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 25px;
 }
 
 .success-factors {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-    margin: 30px 0;
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin: 25px 0;
 }
 
 .factor {
-    background: rgba(46, 204, 113, 0.05);
-    padding: 25px;
-    border-radius: 15px;
-    border: 2px solid rgba(46, 204, 113, 0.2);
+    background: var(--white);
+    padding: 20px;
 }
 
 .factor h4 {
-    color: var(--success);
-    margin-bottom: 15px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 10px;
+    color: var(--gray-900);
 }
 
 .success-precedents {
-    background: var(--dark);
-    color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 30px;
+    background: var(--gray-100);
+    padding: 15px;
+    border-left: 3px solid var(--gray-600);
+    margin-top: 25px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.9rem;
 }
 
 /* Risk Table */
 .risk-table-wrapper {
     overflow-x: auto;
-    margin: 40px 0;
+    margin: 30px 0;
 }
 
 .risk-table {
     width: 100%;
     border-collapse: collapse;
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
+    background: var(--white);
+    border: 1px solid var(--border);
+    font-size: 0.85rem;
 }
 
 .risk-table th,
 .risk-table td {
-    padding: 15px;
+    padding: 10px;
     text-align: left;
-    border-bottom: 1px solid var(--border);
+    border: 1px solid var(--border);
 }
 
 .risk-table th {
-    background: var(--dark);
-    color: white;
+    background: var(--gray-100);
     font-weight: 600;
 }
 
-.risk-table tr:hover {
-    background: rgba(243, 156, 18, 0.05);
+.prob-low,
+.prob-medium,
+.prob-high,
+.impact-medium,
+.impact-high,
+.impact-critical {
+    font-weight: 600;
 }
-
-.prob-low { color: var(--success); font-weight: 600; }
-.prob-medium { color: var(--warning); font-weight: 600; }
-.prob-high { color: var(--danger); font-weight: 600; }
-
-.impact-medium { color: var(--warning); font-weight: 600; }
-.impact-high { color: var(--primary); font-weight: 600; }
-.impact-critical { color: var(--danger); font-weight: 600; }
 
 /* Success/Failure Outcomes */
 .success-failure {
-    margin-top: 60px;
+    margin-top: 40px;
 }
 
 .success-failure h3 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 25px;
 }
 
 .outcome-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
 }
 
 .outcome-card {
-    background: white;
-    border: 3px solid var(--border);
-    border-radius: 20px;
-    padding: 30px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 25px;
 }
 
 .outcome-card.failure {
-    border-color: rgba(231, 76, 60, 0.5);
-    background: linear-gradient(135deg, rgba(231, 76, 60, 0.05) 0%, white 100%);
+    border-left: 3px solid var(--gray-600);
 }
 
 .outcome-card.success {
-    border-color: rgba(46, 204, 113, 0.5);
-    background: linear-gradient(135deg, rgba(46, 204, 113, 0.05) 0%, white 100%);
+    border-left: 3px solid var(--accent);
 }
 
 .outcome-card h4 {
-    font-size: 1.3rem;
-    margin-bottom: 20px;
-}
-
-.outcome-card.failure h4 {
-    color: var(--danger);
-}
-
-.outcome-card.success h4 {
-    color: var(--success);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 15px;
 }
 
 .outcome-action {
-    background: rgba(0, 0, 0, 0.05);
-    padding: 20px;
-    border-radius: 10px;
-    margin-top: 20px;
-    font-size: 0.95rem;
+    background: var(--bg-secondary);
+    padding: 15px;
+    border: 1px solid var(--border);
+    margin-top: 15px;
+    font-size: 0.9rem;
 }
 
 /* Roadmap Timeline */
 .roadmap-timeline {
-    margin-top: 40px;
+    margin-top: 30px;
 }
 
 .roadmap-phase {
-    margin-bottom: 40px;
+    margin-bottom: 30px;
 }
 
 .phase-details {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 30px;
+    gap: 25px;
 }
 
 /* Metrics Grid */
 .success-metrics {
-    margin-top: 60px;
-    background: var(--dark);
-    color: white;
-    padding: 40px;
-    border-radius: 20px;
+    margin-top: 40px;
+    background: var(--gray-900);
+    color: var(--white);
+    padding: 30px;
 }
 
 .success-metrics h3 {
-    font-size: 2rem;
-    margin-bottom: 30px;
-    text-align: center;
-    color: var(--primary);
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 25px;
 }
 
 .metrics-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 1px;
+    background: var(--gray-700);
+    border: 1px solid var(--gray-700);
 }
 
 .metric-card {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 25px;
-    border-radius: 15px;
+    background: var(--gray-800);
+    padding: 20px;
     text-align: center;
-    border: 2px solid rgba(255, 107, 53, 0.3);
 }
 
 .metric-value {
-    font-size: 2.5rem;
+    font-size: 2rem;
     font-weight: bold;
-    color: var(--primary);
-    margin-bottom: 10px;
+    color: var(--white);
+    margin-bottom: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }
 
 .metric-label {
-    font-size: 1.1rem;
-    margin-bottom: 10px;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }
 
 .metric-detail {
-    font-size: 0.9rem;
-    color: #999;
+    font-size: 0.8rem;
+    color: var(--gray-400);
 }
 
 /* Conclusion */
@@ -781,58 +797,59 @@
 }
 
 .conclusion-box {
-    background: white;
-    border: 2px solid var(--border);
-    border-radius: 20px;
-    padding: 40px;
-    margin-bottom: 30px;
+    background: var(--white);
+    border: 1px solid var(--border);
+    padding: 30px;
+    margin-bottom: 25px;
 }
 
 .conclusion-box h3 {
-    color: var(--primary);
-    font-size: 1.8rem;
-    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+    font-size: 1.4rem;
+    font-weight: normal;
+    margin-bottom: 15px;
 }
 
 .conclusion-box p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    margin: 15px 0;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    margin: 12px 0;
 }
 
 .mandate-list {
-    margin: 20px 0;
+    margin: 15px 0;
     padding-left: 25px;
 }
 
 .mandate-list li {
-    margin: 15px 0;
-    font-size: 1.05rem;
+    margin: 10px 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+    font-size: 0.95rem;
 }
 
 .conclusion-cta {
-    background: linear-gradient(135deg, var(--dark) 0%, var(--dark-alt) 100%);
-    color: white;
-    padding: 40px;
-    border-radius: 20px;
+    background: var(--gray-900);
+    color: var(--white);
+    padding: 30px;
     text-align: center;
 }
 
 .conclusion-cta h3 {
-    color: var(--primary);
-    font-size: 2rem;
-    margin-bottom: 20px;
+    font-family: 'Georgia', serif;
+    font-size: 1.5rem;
+    font-weight: normal;
+    margin-bottom: 15px;
 }
 
 .conclusion-cta p {
-    font-size: 1.2rem;
-    margin: 20px 0;
+    font-size: 1rem;
+    margin: 15px 0;
 }
 
 .conclusion-cta .disclaimer {
-    font-size: 0.95rem;
-    color: #999;
-    margin-top: 30px;
+    font-size: 0.85rem;
+    color: var(--gray-400);
+    margin-top: 20px;
 }
 
 /* Responsive */
@@ -846,20 +863,16 @@
     }
 
     .analysis-subtitle {
-        font-size: 1.1rem;
-    }
-
-    .analysis-meta {
-        flex-direction: column;
-        gap: 5px;
+        font-size: 0.95rem;
     }
 
     .stack-layer {
         grid-template-columns: 1fr;
     }
 
-    .comparison-table {
-        font-size: 0.85rem;
+    .layer-label {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
     }
 
     .phase-header {
@@ -876,7 +889,7 @@
 
     .econ-arrow {
         transform: rotate(90deg);
-        margin: 15px 0;
+        margin: 10px 0;
     }
 
     .outcome-grid {
