@@ -16,6 +16,7 @@
                 <a href="#executive">Executive Summary</a>
                 <a href="#architecture">Architecture</a>
                 <a href="#economics">Economics</a>
+                <a href="#security">Security</a>
                 <a href="#risks">Risk Analysis</a>
             </div>
         </div>
@@ -67,8 +68,9 @@
                     <ul>
                         <li><a href="#bootstrap">6. Bootstrap Strategy</a></li>
                         <li><a href="#roadmap">7. Development Roadmap</a></li>
-                        <li><a href="#risks">8. Risk Registry</a></li>
-                        <li><a href="#conclusion">9. Conclusion</a></li>
+                        <li><a href="#security">8. Security Analysis</a></li>
+                        <li><a href="#risks">9. Risk Registry</a></li>
+                        <li><a href="#conclusion">10. Conclusion</a></li>
                     </ul>
                 </div>
             </div>
@@ -468,6 +470,194 @@
     </section>
 
     <!-- Risk Registry -->
+    <!-- Security Analysis -->
+    <section id="security" class="content-section alt-bg">
+        <div class="container">
+            <h2>Security: Adversarial Attack Analysis & Defenses</h2>
+
+            <div class="summary-box">
+                <h3>Methodology</h3>
+                <p>
+                    We commissioned a 100+ hour adversarial security analysis identifying <strong>15 distinct attack vectors</strong>
+                    that sophisticated actors could exploit for $500K-$200M in illegitimate profit. This is not theoretical handwaving -
+                    each attack includes detailed execution steps, profitability calculations, and protocol-level defenses.
+                    The full analysis is available in <a href="../SECURITY_ANALYSIS.md" style="color: var(--accent);">SECURITY_ANALYSIS.md</a>.
+                </p>
+            </div>
+
+            <div class="attack-summary">
+                <h3>Attack Vector Summary</h3>
+                <div class="risk-table-wrapper">
+                    <table class="risk-table">
+                        <thead>
+                            <tr>
+                                <th>Attack Vector</th>
+                                <th>Potential Profit</th>
+                                <th>Probability</th>
+                                <th>Impact</th>
+                                <th>Defense Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="critical-row">
+                                <td><strong>L2 Sequencer Extraction Racket</strong><br>
+                                    <small>Single sequencer front-runs tasks, sandwiches attestations</small>
+                                </td>
+                                <td>$10M-$100M/year</td>
+                                <td class="prob-high">High (75%)</td>
+                                <td class="impact-critical">Critical</td>
+                                <td class="defense-strong">5-sequencer rotation + encrypted mempool (Phase 1)</td>
+                            </tr>
+                            <tr class="critical-row">
+                                <td><strong>Bootstrap Vampire Attack</strong><br>
+                                    <small>Foundation self-deals pilot tasks, captures mining incentives</small>
+                                </td>
+                                <td>$50M-$200M</td>
+                                <td class="prob-high">High (70%)</td>
+                                <td class="impact-critical">Critical</td>
+                                <td class="defense-strong">Time-locked validator sunset + external DAO control</td>
+                            </tr>
+                            <tr class="critical-row">
+                                <td><strong>Death Spiral Exploit</strong><br>
+                                    <small>Whale crashes PHNX price, breaks SPARK peg, arbitrages chaos</small>
+                                </td>
+                                <td>$50M-$200M</td>
+                                <td class="prob-medium">Medium (45%)</td>
+                                <td class="impact-critical">Critical</td>
+                                <td class="defense-strong">Two-way BME + POL + dynamic buyback</td>
+                            </tr>
+                            <tr class="critical-row">
+                                <td><strong>Sybil Miner Army</strong><br>
+                                    <small>1,000 fake cloud miners farm bootstrap incentive pool</small>
+                                </td>
+                                <td>$5M-$15M</td>
+                                <td class="prob-high">High (70%)</td>
+                                <td class="impact-high">High</td>
+                                <td class="defense-strong">Proof-of-Hardware + work fingerprinting + random audits</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Validator Collusion Cartel</strong><br>
+                                    <small>50 owned + 20 recruited validators = 70% Byzantine control</small>
+                                </td>
+                                <td>$10M-$50M</td>
+                                <td class="prob-medium">Medium (50%)</td>
+                                <td class="impact-critical">Critical</td>
+                                <td class="defense-medium">200 validators + reputation weighting + commit-reveal voting</td>
+                            </tr>
+                            <tr>
+                                <td><strong>TWAP Oracle Manipulation</strong><br>
+                                    <small>Flash loans + liquidity drainage during BME minting</small>
+                                </td>
+                                <td>$500K-$5M/attack</td>
+                                <td class="prob-high">High (65%)</td>
+                                <td class="impact-high">High</td>
+                                <td class="defense-medium">Adaptive TWAP + graduated circuit breakers + large burn staking</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Governance Plutocracy</strong><br>
+                                    <small>Whale accumulates 15% PHNX, dominates treasury votes</small>
+                                </td>
+                                <td>$5M-$20M</td>
+                                <td class="prob-medium">Medium (50%)</td>
+                                <td class="impact-high">High</td>
+                                <td class="defense-medium">Passport-weighted voting + treasury spend caps</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Gitcoin Passport Forgery Ring</strong><br>
+                                    <small>High-score Sybil identities via aged accounts</small>
+                                </td>
+                                <td>$1M-$10M</td>
+                                <td class="prob-medium">Medium (50%)</td>
+                                <td class="impact-critical">Critical</td>
+                                <td class="defense-medium">30-day account age + stamp diversity + periodic re-verification</td>
+                            </tr>
+                            <tr>
+                                <td colspan="5" class="section-header">
+                                    <strong>Medium Severity Attacks</strong> (9-15): Task ambiguity, bTASK MEV, validator grinding,
+                                    cross-protocol arbitrage, TEE side-channels, slow-rug extraction, foundation vest exploits
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="defense-principles">
+                <h3>Core Defense Principles</h3>
+                <div class="outcome-grid">
+                    <div class="outcome-card">
+                        <h4>1. Smart Contract-Enforced, Not Promises</h4>
+                        <p>
+                            Foundation validator sunset is code-driven with automatic privilege reduction on block schedule.
+                            Not a roadmap item. Not a "we'll decentralize eventually." Hard-coded and irreversible.
+                        </p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4>2. Launch with Defenses, Not Patch After Exploits</h4>
+                        <p>
+                            5-sequencer rotation from Day 1. Encrypted mempool from genesis. POL deployed at mainnet launch.
+                            We're not "planning" these - they're Phase 1 deliverables with budget allocated.
+                        </p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4>3. External Oversight from Genesis</h4>
+                        <p>
+                            Community holds majority in pilot task multisig (3-of-5, only 2 Foundation).
+                            Mining incentive DAO has 7 external seats vs 2 Foundation. Minority from day one.
+                        </p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4>4. Slash the Powerful More</h4>
+                        <p>
+                            Foundation validators face 2x slashing penalties (10% vs 5% for double-sign, 2% vs 1% for downtime).
+                            Compensates for privileged position and information advantage.
+                        </p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4>5. Transparency Over Obscurity</h4>
+                        <p>
+                            Published 15-attack analysis (SECURITY_ANALYSIS.md). Real-time dashboards for Foundation transactions.
+                            Bug bounty program ($10K-$500K for critical finds). We show our work.
+                        </p>
+                    </div>
+                    <div class="outcome-card">
+                        <h4>6. Economic Deterrence via Cost Escalation</h4>
+                        <p>
+                            Defenses raise attack costs from $100K (trivial) to $5M+ (prohibitive). Proof-of-Hardware requirement
+                            means 1,000 Sybil miners cost $1M in hardware, not $30K in cloud VMs.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-box">
+                <h3>Why Attackers Will Fail (Despite High Profitability)</h3>
+                <ul style="line-height: 1.8;">
+                    <li><strong>Blockchain Transparency</strong>: All transactions auditable. On-chain analysts (Dune, Nansen) detect patterns. Can't hide.</li>
+                    <li><strong>Community Fork Rights</strong>: If Foundation or cartel caught self-dealing, community forks chain, excludes malicious addresses, slashes their stake to zero.</li>
+                    <li><strong>Legal Liability</strong>: MEV extraction = market manipulation. Validator extortion = RICO charges. Profit &lt; legal fees + prison.</li>
+                    <li><strong>Deflationary Self-Correction</strong>: PHNX dumps get bought back via fee mechanism. Attack requires sustained sell pressure = attacker runs out of tokens.</li>
+                    <li><strong>Reputation Destruction</strong>: Protocol branded "exploited" loses all users. Attacker kills golden goose for one-time extraction.</li>
+                </ul>
+            </div>
+
+            <div class="summary-box">
+                <h3>Attacks We CAN'T Prevent (Honesty Hour)</h3>
+                <ul style="line-height: 1.8;">
+                    <li><strong>Regulatory Shutdown</strong>: SEC classifies PHNX as security → cease and desist. No smart contract fixes this.</li>
+                    <li><strong>Competitor Dominance</strong>: Bittensor decentralizes successfully or AWS drops prices 90%. We lose on merit.</li>
+                    <li><strong>Zero-Day Exploits</strong>: Undiscovered vulnerabilities in Tendermint, L2s, cryptographic primitives. Audits reduce but don't eliminate.</li>
+                    <li><strong>Nation-State 51% Attack</strong>: If a government or billionaire wants to burn $100M+ to destroy us, they can. We're not quantum-resistant to infinite capital.</li>
+                    <li><strong>Social Engineering</strong>: Phishing multisig signers for keys. Hardware wallets + training mitigate, but humans are the weakest link.</li>
+                </ul>
+                <p style="margin-top: 20px;">
+                    <strong>Our response:</strong> Multi-layer audits, insurance fund ($500K set aside), incident response playbook,
+                    and brutal honesty when things break. We won't hide exploits or downplay severity.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <section id="risks" class="content-section">
         <div class="container">
             <h2>Comprehensive Risk Registry</h2>

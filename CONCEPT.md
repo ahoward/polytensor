@@ -639,21 +639,27 @@ Critical feedback correctly identified lack of go-to-market strategy. This secti
 
 ### 11. Critical Risk Registry and Mitigations
 
+**Note**: This registry has been enhanced with findings from a comprehensive adversarial security analysis (see SECURITY_ANALYSIS.md for full 15-attack-vector breakdown).
+
 | Risk Category | Specific Risk | Probability | Impact | Mitigation |
 |---------------|---------------|-------------|---------|------------|
-| **Technical** | L1 consensus failure (validator cartel) | Medium | Critical | Geographic/entity validator diversity requirements; 66% Byzantine threshold |
-| **Technical** | Oracle manipulation (TWAP attack) | Medium | High | Multi-source oracles + circuit breakers; 30-min TWAP windows |
-| **Technical** | L2 sequencer centralization | High (early) | Medium | Decentralized sequencer roadmap; fraud-proof redundancy |
-| **Economic** | Cold start failure (no miners) | Medium | Critical | Inflationary bootstrap rewards; foundation-funded pilot tasks |
-| **Economic** | PHNX death spiral (price crash → SPARK inflation) | Low | High | One-way burn (no SPARK→PHNX redemption); buy-back mechanism |
-| **Economic** | Validator collusion (51% stake) | Medium | High | Gitcoin Passport weighting; stake caps per entity (5% max) |
-| **Regulatory** | Securities classification (PHNX/SPARK) | Medium | Critical | Legal counsel; utility-first design; progressive decentralization |
+| **Security** | L2 Sequencer Extraction Racket ($10M-$100M MEV potential) | High (75%) | Critical | **ENHANCED**: 5-sequencer rotation from launch (not 1); encrypted mempool with threshold decryption; Chainlink Fair Sequencing Service; MEV redistribution (50% buyback-burn, 30% miner compensation); Celestia data availability layer |
+| **Governance** | Bootstrap Vampire Attack ($50M-$200M potential) | High (70%) | Critical | **ENHANCED**: Time-locked validator sunset (smart contract enforced, not promise); 3-of-5 pilot task multisig (2 Foundation, 3 external); Mining incentive DAO (7 external, 2 Foundation); Foundation validator slashing premium (10% vs 5%); Real-time audit dashboards |
+| **Economic** | Death Spiral Exploit ($50M-$200M potential) | Medium (45%) | Critical | **ENHANCED**: Two-way BME with asymmetric penalties (10% SPARK→PHNX, 2% PHNX→SPARK); Protocol-Owned Liquidity ($2M SPARK/USDC pool); Dynamic buyback rate (5-50% based on peg health); Circuit breakers (500K PHNX/24hr cap); Supply cap (10B SPARK max); Redemption rate limiting |
+| **Economic** | Sybil Miner Army ($5M-$15M potential) | High (70%) | High | **ENHANCED**: Proof-of-Hardware requirement (GPU attestation via SGX/SEV); Gitcoin Passport ≥50 for ALL miners; Work fingerprinting + plagiarism detection; Random audits (10% of tasks); Tiered incentives (25% rate for new miners); Graduated stakes (10-20% of claims) |
+| **Technical** | Validator Collusion Cartel ($10M-$50M potential) | Medium (50%) | Critical | **ENHANCED**: Validator set expansion (200 validators, not 100); Reputation-weighted staking (20% vote weight from historical accuracy); Random validator subsets for disputes (21 of 200, daily rotation); Commit-reveal voting; On-chain cartel detection (20+ identical votes flagged); Delegated staking dilution |
+| **Economic** | TWAP Oracle Manipulation ($500K-$5M per attack) | High (65%) | High | **ENHANCED**: Adaptive TWAP windows (30-120min based on volatility); Graduated circuit breakers (5%/7%/10% thresholds); Liquidity-weighted multi-source oracle; Large burn staking requirement (>100K PHNX requires 10% stake); Autonomous OracleGuard monitoring |
+| **Governance** | Governance Plutocracy ($5M-$20M potential) | Medium (50%) | High | **ENHANCED**: Gitcoin Passport voting boost (2-3x multiplier); Treasury spend caps (max 5% per quarter); Time-locked execution (7-day delay for major changes) |
+| **Security** | Gitcoin Passport Forgery Ring ($1M-$10M potential) | Medium (50%) | Critical | **NEW**: 30-day minimum account age for stamps; Multi-stamp diversity requirement (10+ types); Periodic re-verification with score decay; Community challenge mechanism |
+| **Regulatory** | Securities classification (PHNX/SPARK) | Medium | Critical | Legal counsel; utility-first design; progressive decentralization; public sale (no VC pre-mine) |
 | **Regulatory** | Carbon credit fraud (ReFi integration) | Low (Phase 2) | Medium | Phase 2 delay; verified credits only; optional participation |
 | **Adoption** | Developer UX too complex | High | High | SDKs in popular languages; no-code UI; extensive documentation |
 | **Adoption** | Cheaper centralized alternatives (AWS/Azure) | High | High | Target 30% cost advantage; emphasize censorship resistance; niche markets first |
 | **Competition** | Bittensor transitions to PoS | Low | Medium | Phoenix already decentralized; better economics; first-mover on multi-token |
-| **Security** | Smart contract vulnerabilities | Medium | Critical | Multiple audits (Trail of Bits, OpenZeppelin); bug bounty program; formal verification |
-| **Security** | TEE hardware vulnerabilities (SGX attacks) | Medium (Phase 2) | High | Multi-TEE support (SGX + SEV); optional TEE (not mandatory) |
+| **Security** | Smart contract vulnerabilities | Medium | Critical | Multiple audits (Trail of Bits, OpenZeppelin); bug bounty program ($10K-$500K for critical finds); formal verification |
+| **Security** | TEE hardware vulnerabilities (SGX attacks) | Medium (Phase 2) | High | Multi-TEE support (SGX + SEV); optional TEE (not mandatory); delayed Phase 2 deployment |
+
+**Additional Attack Vectors Analyzed** (Medium Severity): Task specification ambiguity arbitrage, bTASK redemption sandwich attacks, validator grinding on random selection, cross-protocol MEV, TEE side-channels, slow-rug fee manipulation, foundation vest acceleration exploits. See SECURITY_ANALYSIS.md for full details.
 
 ### 12. Success Metrics (12-Month Targets)
 

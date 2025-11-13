@@ -366,6 +366,141 @@ We're fixing that. If we fail, someone else will succeed using our research. **T
 
 ---
 
+## Anti-Grift Measures (How We're Protecting You)
+
+**Why this section exists**: Every crypto protocol promises "decentralization" and "fairness," then promptly gets exploited by insiders, whales, or sophisticated attackers. Bittensor raised $5B and became a validator-miner collusion playground. We spent 100+ hours identifying how Phoenix could be grifted, and here's how we're defending against it.
+
+### The 15 Attack Vectors We Analyzed
+
+We commissioned a deep adversarial security analysis that identified **15 distinct ways** sophisticated actors could exploit Phoenix for illegitimate profit (ranging from $500K to $200M per attack). Here are the critical ones and how we're defending:
+
+#### 🔴 **Critical Severity** (Must Fix Before Launch)
+
+**1. L2 Sequencer Extraction Racket** ($10M-$100M potential)
+- **The Grift**: Single sequencer operator front-runs task assignments, sandwiches attestations, censors competitors
+- **Our Defense**:
+  - Launch with **5 sequencers rotating every hour** (not 1)
+  - Encrypted mempool (you can't front-run what you can't see)
+  - Fair Sequencing Service integration (Chainlink FSS)
+  - MEV profits redistributed: 50% buyback-burn, 30% miner compensation, 20% treasury
+  - **Status**: Building this NOW, not "on the roadmap"
+
+**2. Bootstrap Vampire Attack** ($50M-$200M potential)
+- **The Grift**: Foundation controls 20% validators, self-deals pilot tasks, captures mining incentives
+- **Our Defense**:
+  - **Time-locked validator sunset**: Foundation validators lose voting rights on a fixed block schedule (not a "promise")
+  - Pilot tasks require 3-of-5 multisig (2 Foundation, 3 external community)
+  - Mining incentive pool controlled by external DAO (Foundation is minority)
+  - Foundation validators face **2x slashing penalties** (10% vs 5% for double-sign)
+  - Real-time dashboards showing all Foundation transactions
+
+**3. Death Spiral Exploit** ($50M-$200M potential)
+- **The Grift**: Whale mints massive SPARK when PHNX is high, crashes PHNX price, breaks SPARK peg, arbitrages the chaos
+- **Our Defense**:
+  - **Two-way BME with asymmetric penalties**: You can burn SPARK→PHNX (10% penalty) or PHNX→SPARK (2% penalty)
+  - Protocol-Owned Liquidity: $2M SPARK/USDC pool defends $0.0095-$0.0105 band
+  - Dynamic buyback rate: 5% (healthy peg) to 50% (crisis mode)
+  - Circuit breakers: Max 500K PHNX burned per 24hr per address
+  - Supply cap: 10B SPARK maximum (no infinite minting)
+
+**4. Sybil Miner Army** ($5M-$15M potential)
+- **The Grift**: Attacker creates 1,000 fake miners (cloud VMs), farms mining incentive pool with plagiarized work
+- **Our Defense**:
+  - **Proof-of-Hardware requirement**: GPU registration with remote attestation (Intel SGX/AMD SEV)
+  - Gitcoin Passport score ≥50 for ALL miners (not just validators)
+  - Work fingerprinting detects plagiarism (10+ identical outputs → mass slashing)
+  - Random audits: 10% of tasks reviewed by Foundation experts
+  - Tiered incentives: New miners earn 25% rate for first 30 days (probation)
+  - Graduated stakes: Claiming >10K PHNX/month requires 10% stake lockup
+
+#### 🟡 **High Severity** (Mitigated but Monitor)
+
+**5. Validator Collusion Cartel** ($10M-$50M potential)
+- **The Grift**: Attacker controls 50 validators via Sybils + recruits 20 more = 70% (exceeds 66% Byzantine threshold)
+- **Our Defense**:
+  - Validator set expansion: 200 validators (not 100) = need 134 to collude
+  - Reputation-weighted staking: Historical accuracy counts 20% toward vote weight
+  - Random validator subsets for disputes (21 selected, rotates daily)
+  - Commit-reveal voting (can't see others' votes before submitting)
+  - On-chain cartel detection: 20+ validators voting identically = flagged for governance review
+
+**6. TWAP Oracle Manipulation** ($500K-$5M per attack)
+- **The Grift**: Flash loans + liquidity drainage to manipulate PHNX price during BME minting
+- **Our Defense**:
+  - Adaptive TWAP windows: 30min (normal) to 120min (high volatility)
+  - Graduated circuit breakers: 5% deviation = reduced max burn, 7% = tiny burns, 10% = full pause
+  - Liquidity-weighted oracle (Uniswap 5M gets 5x weight vs Balancer 1M)
+  - Large burn staking: >100K PHNX burns require 10% stake (slashed if manipulation detected)
+  - Autonomous monitoring contract auto-triggers circuit breakers
+
+**7. Governance Plutocracy** ($5M-$20M potential)
+- **The Grift**: Whale accumulates 15% PHNX, dominates treasury votes despite quadratic funding
+- **Our Defense**:
+  - Gitcoin Passport voting weight boost (high scores get 2-3x multiplier on votes)
+  - Treasury spend caps: Max 5% per quarter without supermajority (75%)
+  - Time-locked execution: Major changes have 7-day delay (community can react)
+
+**8. Gitcoin Passport Forgery Ring** ($1M-$10M potential)
+- **The Grift**: Sophisticated actors create high-score identities via aged accounts, compromised stamps
+- **Our Defense**:
+  - Minimum 30-day account age for stamps (can't rush Passport creation)
+  - Multi-stamp diversity requirement (need 10+ different stamp types, not 100 of same)
+  - Periodic Passport re-verification (scores decay if not maintained)
+  - Community challenges: Anyone can flag suspicious Passports for review
+
+#### 🟢 **Medium Severity** (Acceptable Risk)
+
+**9-15. Other Vectors**: Task specification ambiguity, bTASK redemption MEV, validator grinding, cross-protocol arbitrage, TEE side-channels, slow-rug fee manipulation, foundation vest acceleration
+
+- **Mitigation approach**: Formal task specification language, redemption rate limiting, VRF for random selection, competitive pricing monitoring, delayed TEE Phase 2, fee governance limits, smart contract-enforced vesting
+
+### What Makes This Different from "Trust Us"
+
+Most protocols say "we have circuit breakers" or "we'll decentralize eventually." Here's why our defenses are real:
+
+1. **Smart contract-enforced, not promises**: Foundation validator sunset is code-driven, not a roadmap item
+2. **Launching with defenses, not adding later**: 5-sequencer rotation from Day 1, not "coming soon"
+3. **External oversight from genesis**: Community holds majority in pilot task multisig and mining incentive DAO
+4. **Slash the powerful more**: Foundation validators face 2x penalties vs regular validators
+5. **Published attack analysis**: This isn't security through obscurity - we're showing our work (see SECURITY_ANALYSIS.md)
+
+### Why Attackers Will Still Try (And Why They'll Fail)
+
+**They'll try because**:
+- High profitability (some attacks could extract $50M+)
+- Early-stage liquidity is shallow (easier to manipulate)
+- Crypto is pseudonymous (perceived low prosecution risk)
+
+**They'll fail because**:
+- Blockchain transparency makes everything auditable (no hiding)
+- Community can fork the chain and exclude attackers (nuclear option works)
+- Defenses raise attack costs from $100K to $5M+ (economic deterrence)
+- Legal liability exceeds profit (RICO charges for extortion, securities fraud for manipulation)
+- Deflationary mechanism is self-correcting (dumps get bought back)
+- We're launching with mature defenses, not adding them after exploits
+
+### The Attacks We CAN'T Prevent
+
+Honesty hour: Some risks are inherent to decentralized systems:
+
+1. **Regulatory shutdown**: If the SEC classifies PHNX as a security, no smart contract can save us
+2. **Competitor dominance**: If Bittensor successfully decentralizes or AWS drops prices 90%, we lose
+3. **Black swan exploits**: Zero-day vulnerabilities in Tendermint, Ethereum L2s, or cryptographic primitives
+4. **Coordinated 51% attack**: If a nation-state or billionaire wants to burn $100M to kill us, they can
+5. **Social engineering**: Phishing Foundation members for multisig keys (we'll have hardware security modules, but humans are weak)
+
+**What we do about these**: Audits, insurance funds, incident response plans, and brutal honesty when things break
+
+### How You Can Help
+
+**White-hat security researchers**: We'll run a bug bounty program (details TBD, likely $10K-$500K for critical finds)
+
+**On-chain analysts**: Watch the dashboards, flag suspicious patterns, earn community rewards for detection
+
+**Governance participants**: Vote to adjust defenses in real-time as attacks evolve
+
+---
+
 ## The Launch Thesis (Why Q1 2026?)
 
 Bittensor is collapsing:
