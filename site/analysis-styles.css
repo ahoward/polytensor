@@ -939,3 +939,28 @@
     margin-bottom: 10px;
     color: var(--black);
 }
+
+/* Force grayscale on analysis page too - no color except hot pink */
+.analysis-nav,
+.analysis-hero,
+.content-section,
+.toc-section,
+.summary-box,
+.risk-table,
+table,
+tbody,
+thead,
+tr,
+td,
+th {
+    filter: grayscale(100%) contrast(1);
+}
+
+/* Restore hot pink ONLY for strategic links and accents */
+.nav-links a:hover,
+a[href]:hover,
+.btn-primary,
+a.btn-primary,
+.defense-strong {
+    filter: none !important;
+}

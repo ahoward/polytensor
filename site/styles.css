@@ -702,3 +702,20 @@ html {
     display: inline-block;
     margin-right: 8px;
 }
+
+/* Force ALL emojis to grayscale - no color allowed except hot pink accents */
+* {
+    /* Grayscale filter catches all colored emojis */
+    filter: grayscale(100%) contrast(1);
+}
+
+/* Restore color ONLY for hot pink strategic elements */
+.hot-pink-glyph,
+.btn-primary,
+.btn-primary:hover,
+a.btn-primary,
+a[href]:hover,
+::selection,
+.status-dot {
+    filter: none !important;
+}
