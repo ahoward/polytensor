@@ -940,27 +940,19 @@
     color: var(--black);
 }
 
-/* Force grayscale on analysis page too - no color except hot pink */
-.analysis-nav,
-.analysis-hero,
-.content-section,
-.toc-section,
-.summary-box,
-.risk-table,
-table,
-tbody,
-thead,
-tr,
-td,
-th {
-    filter: grayscale(100%) contrast(1);
-}
+/* Force grayscale on analysis page body - emojis become B&W */
+/* The body filter is inherited from styles.css, so just restore pink elements */
 
-/* Restore hot pink ONLY for strategic links and accents */
-.nav-links a:hover,
-a[href]:hover,
+/* Restore hot pink for strategic elements on analysis page */
 .btn-primary,
 a.btn-primary,
-.defense-strong {
+.defense-strong,
+a:hover {
     filter: none !important;
+    color: var(--accent) !important;
+}
+
+/* Navigation links get pink on hover */
+.nav-links a:hover {
+    color: var(--accent) !important;
 }

@@ -704,18 +704,27 @@ html {
 }
 
 /* Force ALL emojis to grayscale - no color allowed except hot pink accents */
-* {
+body {
     /* Grayscale filter catches all colored emojis */
-    filter: grayscale(100%) contrast(1);
+    filter: grayscale(100%);
 }
 
-/* Restore color ONLY for hot pink strategic elements */
-.hot-pink-glyph,
+/* Restore color for the ENTIRE hero section and CTAs - pink must show! */
+.hero,
 .btn-primary,
 .btn-primary:hover,
 a.btn-primary,
-a[href]:hover,
-::selection,
-.status-dot {
+.hot-pink-glyph {
     filter: none !important;
+}
+
+/* Links get hot pink on hover */
+a:hover {
+    color: var(--accent) !important;
+}
+
+/* Selection stays hot pink */
+::selection {
+    background: var(--accent) !important;
+    color: var(--white) !important;
 }
