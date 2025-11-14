@@ -703,39 +703,36 @@ html {
     margin-right: 8px;
 }
 
-/* Grayscale ONLY text content to catch emojis, NOT layout elements */
-p, li, h1, h2, h3, h4, h5, h6, span:not(.hot-pink-glyph), div:not(.hero):not(.cta-box) > * {
+/* Grayscale emojis ONLY - applied manually via span wrapper */
+.emoji-grayscale {
     filter: grayscale(100%);
 }
 
-/* Hot pink elements - NO FILTER, explicit color */
-.hot-pink-glyph {
-    color: var(--accent) !important;
-    filter: none !important;
+/* Hot pink stays natural - no overrides needed, just proper link styles */
+a {
+    color: var(--text-primary);
+    text-decoration: none;
 }
 
-.btn-primary,
-a.btn-primary {
-    background: var(--accent) !important;
-    border-color: var(--accent) !important;
-    color: var(--white) !important;
-    filter: none !important;
-}
-
-.btn-primary:hover,
-a.btn-primary:hover {
-    background: var(--accent-hover) !important;
-    border-color: var(--accent-hover) !important;
-    filter: none !important;
-}
-
-/* Links get hot pink on hover */
 a:hover {
-    color: var(--accent) !important;
+    color: var(--accent);
+    text-decoration: underline;
+}
+
+/* Primary buttons use hot pink naturally */
+.btn-primary {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--white);
+}
+
+.btn-primary:hover {
+    background: var(--accent-hover);
+    border-color: var(--accent-hover);
 }
 
 /* Selection stays hot pink */
 ::selection {
-    background: var(--accent) !important;
-    color: var(--white) !important;
+    background: var(--accent);
+    color: var(--white);
 }
