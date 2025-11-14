@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Context Window - Phoenix Protocol Technical Specification</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="analysis-styles.css">
+</head>
+<body>
+    <!-- Header/Nav -->
+    <nav class="analysis-nav">
+        <div class="container">
+            <a href="index.html" class="nav-logo">← Phoenix Protocol</a>
+            <div class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="analysis.html">Formal Analysis</a>
+                <a href="#specification">Full Specification</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <section class="analysis-hero">
+        <div class="container">
+            <h1>The Full Context Window</h1>
+            <p class="analysis-subtitle">
+                Complete technical specification: 20,000+ words of architecture, economics, and implementation details.<br>
+                <em>(Yes, that's an AI pun. We're building decentralized AI infrastructure. We're allowed.)</em>
+            </p>
+            <div class="analysis-meta">
+                <span>CONCEPT.md</span>
+                <span>•</span>
+                <span>Version 2.0</span>
+                <span>•</span>
+                <span>Updated: November 13, 2025</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Download/View Section -->
+    <section class="content-section">
+        <div class="container">
+            <div class="summary-box">
+                <h3>Get the Full Specification</h3>
+                <p>
+                    The complete Phoenix Protocol technical specification (CONCEPT.md) is available in our GitHub repository.
+                    This 20,000+ word document covers everything from Bittensor's failure analysis to our tri-token economic model,
+                    hybrid oracle system, L1/L2 architecture, bootstrap strategy, and 36-month development roadmap.
+                </p>
+                <div class="cta-buttons" style="margin-top: 20px;">
+                    <a href="https://github.com/ahoward/polytensor/blob/main/CONCEPT.md" class="btn btn-primary" target="_blank">
+                        View on GitHub
+                    </a>
+                    <a href="https://raw.githubusercontent.com/ahoward/polytensor/main/CONCEPT.md" class="btn btn-secondary" target="_blank">
+                        Download Raw Markdown
+                    </a>
+                </div>
+            </div>
+
+            <div id="specification" class="summary-box" style="margin-top: 40px;">
+                <h3>What's in the Context Window?</h3>
+                <p style="margin-bottom: 20px;">
+                    <strong>20,453 words</strong> across 12 major sections. This isn't a whitepaper full of buzzwords—it's a
+                    brutally honest engineering blueprint with failure modes, risk analysis, and specific implementation timelines.
+                </p>
+
+                <div class="toc-grid">
+                    <div class="toc-column">
+                        <h4>Part I: Problem Analysis</h4>
+                        <ul style="line-height: 1.8;">
+                            <li><strong>Bittensor Post-Mortem</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Centralization Paradox (PoA not PoS)</li>
+                                    <li>Single-Token Collusion Economics</li>
+                                    <li>Yuma Consensus Opacity</li>
+                                    <li>Subnet Gatekeeping Complexity</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="toc-column">
+                        <h4>Part II: Architecture</h4>
+                        <ul style="line-height: 1.8;">
+                            <li><strong>Tri-Token Economic Model</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>PHNX: Governance & Value Accrual</li>
+                                    <li>SPARK: Stable Utility ($0.01 peg)</li>
+                                    <li>bTASK: Non-transferable Work Vouchers</li>
+                                    <li>Burn-Mint Equilibrium (BME)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Hybrid Oracle System</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Optimistic Oracle (UMA-style, Phase 1)</li>
+                                    <li>ZK-ML Deterministic Proofs (Phase 2)</li>
+                                    <li>Stake-backed slashing penalties</li>
+                                </ul>
+                            </li>
+                            <li><strong>L1/L2 Scaling Architecture</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Tendermint BFT L1 (500 TPS settlement)</li>
+                                    <li>Optimistic Rollup L2 (5,000 TPS execution)</li>
+                                    <li>5-sequencer rotation (MEV-resistant)</li>
+                                </ul>
+                            </li>
+                            <li><strong>Privacy & Security</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>TEE Integration (Intel SGX/AMD SEV)</li>
+                                    <li>Confidential Compute for Enterprise</li>
+                                    <li>Proof-of-Hardware for Miners</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="toc-column">
+                        <h4>Part III: Implementation</h4>
+                        <ul style="line-height: 1.8;">
+                            <li><strong>Bootstrap Strategy</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Genesis Token Distribution</li>
+                                    <li>Inflationary Validator Rewards (Phase 1)</li>
+                                    <li>Mining Incentive Pool (10M PHNX)</li>
+                                    <li>Foundation-Funded Pilot Tasks</li>
+                                </ul>
+                            </li>
+                            <li><strong>36-Month Roadmap</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Phase 1 (0-12mo): Launch-Ready Core</li>
+                                    <li>Phase 2 (12-24mo): Enterprise-Ready Scale</li>
+                                    <li>Phase 3 (24-36mo): Protocol Maturity</li>
+                                    <li>Budget Estimates: $2.5M → $3M → $2M</li>
+                                </ul>
+                            </li>
+                            <li><strong>Security Analysis</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>15 Attack Vector Analysis</li>
+                                    <li>Defense Effectiveness Ratings</li>
+                                    <li>Protocol-Level Mitigations</li>
+                                    <li>$10M Security Budget Allocation</li>
+                                </ul>
+                            </li>
+                            <li><strong>Risk Registry</strong>
+                                <ul style="margin-left: 20px; margin-top: 5px;">
+                                    <li>Technical Risks (consensus, oracle, L2)</li>
+                                    <li>Economic Risks (cold start, death spiral)</li>
+                                    <li>Regulatory Risks (securities classification)</li>
+                                    <li>Adoption Risks (UX complexity, pricing)</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="summary-box" style="margin-top: 40px;">
+                <h3>Key Technical Specifications at a Glance</h3>
+                <div class="risk-table-wrapper">
+                    <table class="risk-table">
+                        <thead>
+                            <tr>
+                                <th>Component</th>
+                                <th>Technology</th>
+                                <th>Performance</th>
+                                <th>Status</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>L1 Consensus</strong></td>
+                                <td>Tendermint BFT</td>
+                                <td>500 TPS, 6s blocks, instant finality</td>
+                                <td>Phase 1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>L2 Execution</strong></td>
+                                <td>Optimistic Rollup</td>
+                                <td>5,000 TPS, 7-day withdrawal period</td>
+                                <td>Phase 1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Validator Set</strong></td>
+                                <td>Proof-of-Stake (200 validators)</td>
+                                <td>66% Byzantine threshold, 100K PHNX min stake</td>
+                                <td>Phase 1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Oracle (Phase 1)</strong></td>
+                                <td>Optimistic (UMA-style)</td>
+                                <td>Stake-backed disputes, 24hr challenge window</td>
+                                <td>Launch</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Oracle (Phase 2)</strong></td>
+                                <td>ZK-ML Proofs</td>
+                                <td>Cryptographic deterministic verification</td>
+                                <td>Month 12-24</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Privacy</strong></td>
+                                <td>TEE (Intel SGX/AMD SEV)</td>
+                                <td>Confidential compute for enterprise tasks</td>
+                                <td>Phase 2</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Data Availability</strong></td>
+                                <td>Celestia DA Layer</td>
+                                <td>10-min posting requirement, fraud-proof enabled</td>
+                                <td>Phase 1</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Sybil Resistance</strong></td>
+                                <td>Gitcoin Passport</td>
+                                <td>Score ≥50 (miners), ≥70 (validators)</td>
+                                <td>Launch</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="summary-box" style="margin-top: 40px;">
+                <h3>Economic Model Summary</h3>
+                <p><strong>Total Supply:</strong> 100M PHNX (fixed, deflationary via buyback-burn)</p>
+
+                <h4 style="margin-top: 20px;">Token Distribution</h4>
+                <div class="risk-table-wrapper">
+                    <table class="risk-table">
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Public Sale</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">30M (30%)</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">Q4 2025, no VC pre-mine</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Foundation</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">20M (20%)</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">4-year linear vest</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Team</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">15M (15%)</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">1-year cliff, 3-year vest</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Ecosystem Grants</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">15M (15%)</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">For miners/validators/devs</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Strategic Partners</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">10M (10%)</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">Early validators</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 10px; border: 1px solid var(--border);"><strong>Community Airdrop</strong></td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">10M (10%)</td>
+                            <td style="padding: 10px; border: 1px solid var(--border);">Bittensor refugees, researchers</td>
+                        </tr>
+                    </table>
+                </div>
+
+                <h4 style="margin-top: 30px;">Value Accrual Mechanism</h4>
+                <p><strong>SPARK Fee Distribution:</strong></p>
+                <ul style="line-height: 1.8;">
+                    <li>70% → Miners (task completion payments)</li>
+                    <li>15% → PHNX Buyback-Burn (deflationary pressure)</li>
+                    <li>10% → Community Treasury (public goods funding)</li>
+                    <li>5% → Security Reserve (audits, bug bounties, insurance)</li>
+                </ul>
+
+                <p style="margin-top: 20px;"><strong>Burn-Mint Equilibrium (BME):</strong></p>
+                <ul style="line-height: 1.8;">
+                    <li>Burn PHNX → Mint SPARK at USD-pegged rate (2% fee)</li>
+                    <li>Burn SPARK → Mint PHNX at USD-pegged rate (10% penalty, peg enforcement)</li>
+                    <li>Circuit breakers: Max 500K PHNX burned per 24hr per address</li>
+                    <li>Supply cap: 10B SPARK maximum (prevents infinite minting)</li>
+                </ul>
+            </div>
+
+            <div class="summary-box" style="margin-top: 40px;">
+                <h3>Why "Context Window"?</h3>
+                <p>
+                    In AI, a <strong>context window</strong> is the amount of information a model can process at once.
+                    GPT-4 has a 128K token context window. Claude has 200K. Gemini has 1M.
+                </p>
+                <p style="margin-top: 15px;">
+                    This specification is about <strong>20,000 words</strong> (≈27,000 tokens). If you're an AI agent
+                    evaluating Phoenix Protocol, this entire document fits comfortably in your context window.
+                </p>
+                <p style="margin-top: 15px;">
+                    We're building infrastructure for AI. It's only fitting that our technical documentation is
+                    <strong>AI-native</strong>: structured, comprehensive, and designed to be ingested by both humans
+                    and autonomous agents in a single pass.
+                </p>
+                <p style="margin-top: 15px;">
+                    <em>(Plus, we're nerds. We couldn't resist the pun.)</em>
+                </p>
+            </div>
+
+            <div class="summary-box" style="margin-top: 40px;">
+                <h3>Related Documentation</h3>
+                <ul style="line-height: 2;">
+                    <li><strong><a href="index.html" style="color: var(--accent);">README.md</a></strong> -
+                        ELI5 overview, brutal honesty, launch thesis (5-minute read)</li>
+                    <li><strong><a href="analysis.html" style="color: var(--accent);">Formal Analysis</a></strong> -
+                        Executive summary, architecture diagrams, risk registry (15-minute read)</li>
+                    <li><strong><a href="https://github.com/ahoward/polytensor/blob/main/SECURITY_ANALYSIS.md" style="color: var(--accent);" target="_blank">SECURITY_ANALYSIS.md</a></strong> -
+                        15 attack vectors, defense effectiveness, protocol changes (45-minute read)</li>
+                    <li><strong><a href="https://github.com/ahoward/polytensor/blob/main/DEPLOYMENT.md" style="color: var(--accent);" target="_blank">DEPLOYMENT.md</a></strong> -
+                        GitHub Pages setup, deployment log, next steps (5-minute read)</li>
+                </ul>
+            </div>
+
+            <div class="cta-buttons" style="margin-top: 60px; text-align: center;">
+                <a href="https://github.com/ahoward/polytensor" class="btn btn-primary" target="_blank">
+                    View Full Repository on GitHub
+                </a>
+                <a href="index.html#waitlist" class="btn btn-secondary">
+                    Join the Waitlist
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: var(--bg-secondary); border-top: 1px solid var(--border); padding: 40px 20px; margin-top: 60px; text-align: center;">
+        <div class="container">
+            <p style="color: var(--text-secondary); font-size: 0.9rem;">
+                Phoenix Protocol - The decentralized AI marketplace that's actually decentralized
+            </p>
+            <p style="color: var(--text-secondary); font-size: 0.85rem; margin-top: 10px;">
+                Pre-Launch Development • Target Q1 2026 • 100% Open Source (Apache 2.0)
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

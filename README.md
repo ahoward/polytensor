@@ -105,7 +105,7 @@ philosophical_stance:
   community: Quadratic funding for public goods, Gitcoin Passport sybil resistance
 
 repositories:
-  conceptual_blueprint: ./CONCEPT.md (technical architecture)
+  conceptual_blueprint: https://ahoward.github.io/polytensor/context.html (technical architecture)
   this_file: ./README.md (ELI5 summary)
 
 license: Open source (to be determined, likely Apache 2.0 or MIT)
@@ -481,7 +481,7 @@ We're not talking about "open source smart contracts" while keeping the juicy pa
 - ✅ **Frontend/UIs**: Task creation interfaces, dashboards, analytics - every component
 - ✅ **Infrastructure Code**: Deployment scripts, monitoring, alerting, DevOps automation
 - ✅ **Documentation**: Architecture docs, API references, deployment guides, security analysis
-- ✅ **This README and CONCEPT.md**: You're reading open-source documentation right now
+- ✅ **This README and the Full Context Window**: You're reading open-source documentation right now
 
 **License**: Apache 2.0 (permissive, commercial-friendly, allows forks)
 
@@ -775,7 +775,7 @@ We're just offering a lifeboat.
 - 🌐 Website: (coming soon)
 - 💬 Discord: (coming soon)
 - 🐦 Twitter: (coming soon)
-- 📚 Docs: See `CONCEPT.md` in this repo for technical details
+- 📚 Docs: See the [Full Context Window](https://ahoward.github.io/polytensor/context.html) for technical details
 - 💻 GitHub: You're here! Star the repo, watch for updates
 
 **Want to be an early validator/miner?**
@@ -834,4 +834,4 @@ If you want:
 
 **P.P.S.** - If you're from the SEC and reading this: please note all the risk disclosures. We're trying to do this right. Let's talk.
 
-**P.P.P.S.** - If you're a degen and you read this whole thing: respect. Now go read `CONCEPT.md` for the technical details. It's 20,000 words of architecture nerdery.
+**P.P.P.S.** - If you're a degen and you read this whole thing: respect. Now go read the [Full Context Window](https://ahoward.github.io/polytensor/context.html) for the technical details. It's 20,000 words of architecture nerdery.
